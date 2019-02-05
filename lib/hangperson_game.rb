@@ -10,8 +10,36 @@ class HangpersonGame
   
   def initialize(word)
     @word = word
+   @guesses = ''
+    @wrong_guesses = ''
   end
-
+  
+  attr_accessor :word, :guesses, :wrong_guesses
+  
+  def guess(letter)
+    # error if invalid
+    raise ArgumentError if (letter.to_s == '') or !(letter =~ /[[:alpha:]]/ )
+    # ignore case
+    letter.downcase!
+    
+  # check letter and if it doesn't exist, add it in the corresponding variable
+  if @word.include?(letter) 
+      if @guesses.include?(letter)
+        return false
+      else
+        @guesses += letter
+      end
+    else 
+      if @wrong_guesses.include?(letter)
+        return false
+      else
+        @wrong_guesses += letter 
+      end
+    end
+    true
+  end
+  
+  
   # You can test it by running $ bundle exec irb -I. -r app.rb
   # And then in the irb: irb(main):001:0> HangpersonGame.get_random_word
   #  => "cooking"   <-- some random word
