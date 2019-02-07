@@ -39,6 +39,21 @@ class HangpersonGame
     true
   end
   
+  # displays the word with guesses
+  def word_with_guesses
+    result = ''
+    @word.split('').each do |char|
+      if @guesses.include? char
+        result << char
+      else
+        result << '-'
+      end
+    end  
+    
+    return result
+    
+  end
+  
   
   # You can test it by running $ bundle exec irb -I. -r app.rb
   # And then in the irb: irb(main):001:0> HangpersonGame.get_random_word
