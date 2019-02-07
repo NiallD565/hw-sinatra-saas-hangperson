@@ -10,11 +10,12 @@ class HangpersonGame
   
   def initialize(word)
     @word = word
-   @guesses = ''
+    @guesses = ''
     @wrong_guesses = ''
+    @win_lose = :play
   end
   
-  attr_accessor :word, :guesses, :wrong_guesses
+  attr_accessor :word, :guesses, :wrong_guesses, :win_lose
   
   def guess(letter)
     # error if invalid
@@ -56,9 +57,9 @@ class HangpersonGame
   
   def check_win_or_lose
     if word_with_guesses == @word
-      :win
+      @win_lose = :win
       elsif @wrong_guesses.length >= 7
-      :lose
+      @win_lose = :lose
       else
       :play
       
