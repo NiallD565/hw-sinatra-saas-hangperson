@@ -42,9 +42,9 @@ class HangpersonApp < Sinatra::Base
     ### YOUR CODE HERE ### Part 4
     
     begin
-      flash[:message] = "Letter already guessed try again." unless @game.guess letter
+      flash[:message] = "You have already used that letter." unless @game.guess letter
     rescue
-      flash[:message] = "No try again."
+      flash[:message] = "Invalid guess."
     end
     redirect '/show'
   end
