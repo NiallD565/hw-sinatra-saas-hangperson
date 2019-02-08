@@ -10,7 +10,7 @@ describe HangpersonGame do
   end
 
   describe 'new' do
-    it "takes a parameter and returns a HangpersonGame object" do      
+    it "takes a parameter and returns a HangpersonGame object" do
       @hangpersonGame = HangpersonGame.new('glorp')
       expect(@hangpersonGame).to be_an_instance_of(HangpersonGame)
       expect(@hangpersonGame.word).to eq('glorp')
@@ -63,7 +63,7 @@ describe HangpersonGame do
         expect(@game.guess('a')).to be false
         expect(@game.guess('q')).to be false
       end
-      it 'is case insensitive'do
+      it 'is case insensitive' do
         expect(@game.guess('A')).to be false
         expect(@game.guess('Q')).to be false
         expect(@game.guesses).not_to include('A')
@@ -105,7 +105,7 @@ describe HangpersonGame do
   end
 
   describe 'game status' do
-    before :each do 
+    before :each do
       @game = HangpersonGame.new('dog')
     end
     it 'should be win when all letters guessed' do
