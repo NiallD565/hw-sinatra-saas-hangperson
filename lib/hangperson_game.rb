@@ -52,7 +52,7 @@ class HangpersonGame
     end  
     
     return result
-    
+
   end
   
   def check_win_or_lose
